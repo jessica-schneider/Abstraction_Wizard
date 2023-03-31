@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abstraction Wizard</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div class="welcome">
+    <h1>Lease abstraction wizard</h1>
+  </div>
+  <div class="main">
+    <span class="headings">
+      <h2>ASC 842 Adoption Date</h2>
+    </span>
+    <div class="inputs">
+      <div class="adoptionDate">
+        <label>Adoption Date</label>
+        <input type="date" id="adoptionDate" value="2022-01-01">
+      </div>
+      <span class='headings'>
+        <h2>Lease Terms</h2>
+      </span>
+      <div class="radio">
+        <div class='startDate'>
+          <label>Initial Start Date</label>
+          <input type="date" id="startDate">
+        </div>
+        <label onclick="document.getElementsByName('termLengthInput')[0].value = ''">
+          <input type="radio" value="endDateRadio" name="termInput" id="endDateRadio" />End Date
+          <input type="date" id="endDate" name="endDateInput"
+            onfocus="document.getElementById('endDateRadio').checked = true, document.getElementsByName('termLengthInput')[0].value = ''"
+            ;>
+        </label>
+        <label onclick="document.getElementsByName('endDateInput')[0].value = ''">
+          <input type="radio" value="termLengthRadio" name="termInput" id="termLengthRadio" />Term Length (in months)
+          <input type="number" min="0" id="termLength" name="termLengthInput"
+            onfocus="document.getElementById('termLengthRadio').checked = true, document.getElementsByName('endDateInput')[0].value = ''"
+            ;>
+        </label>
+      </div>
+    </div>
+    <div class="button">
+      <button id="btn" onclick="calculateKeyTerms()"> get key terms </button>
+    </div>
+    <div id="errorMessageContainer">
+      <p id="errorMessage"></p>
+    </div>
+    <div class="outputs">
+      <div class="outputValue">
+        <p id="endDateOutput"></p>
+        <p id="lastPmtOutput"></p>
+        <p id="totalMonthsOutput"></p>
+        <p id="monthsPostAdopt"></p>
+        <p id="numberPayments"></p>
+      </div>
+      <div class="outputText">
+        <p id="endDateOutputLabel"></p>
+        <p id='lastPmtOutputLabel'></p>
+        <p id="totalMonthsOutputLabel"></p>
+        <p id="monthsPostAdoptLabel"></p>
+        <p id="numberPaymentsLabel"></p>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+  <script src="moment.js"></script>
+</body>
+
+</html>

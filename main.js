@@ -116,13 +116,11 @@ function populateInnerHTML() {
   document.getElementById('lastPmtOutputLabel').innerHTML = 'Likely final payment date';
   document.getElementById('totalMonthsOutput').innerHTML = calculateMonthsTerm();
   document.getElementById('totalMonthsOutputLabel').innerHTML = 'Months with lease expense';
-}
-
-function populatePostAdoptInnerHTML() {
-  document.getElementById('monthsPostAdopt').innerHTML = calculateMonthsFromAdoption();
-  document.getElementById('monthsPostAdoptLabel').innerHTML = 'Post-adoption remaining term (months)';
-  document.getElementById('numberPayments').innerHTML = calculateNumberPayments();
-  document.getElementById('numberPaymentsLabel').innerHTML = 'Post-adoption payments made';
+  if (startDateBeforeAdoption()) { 
+    populatePostAdoptInnerHTML(); // if lease start date is before adoption date populate last two lines of output 
+  } else {
+    nullPostAdoptInnerHTML(); // if lease start date is NOT before adoption date, clear last two lines of output 
+  }
 }
 
 function nullInnerHTML() {
@@ -138,6 +136,20 @@ function nullInnerHTML() {
   document.getElementById('lastPmtOutputLabel').innerHTML = null;
 }
 
+function populatePostAdoptInnerHTML() {
+  document.getElementById('monthsPostAdopt').innerHTML = calculateMonthsFromAdoption();
+  document.getElementById('monthsPostAdoptLabel').innerHTML = 'Post-adoption remaining term (months)';
+  document.getElementById('numberPayments').innerHTML = calculateNumberPayments();
+  document.getElementById('numberPaymentsLabel').innerHTML = 'Post-adoption payments made';
+}
+
+function nullPostAdoptInnerHTML() {
+  document.getElementById('monthsPostAdopt').innerHTML = null;
+  document.getElementById('monthsPostAdoptLabel').innerHTML = null;
+  document.getElementById('numberPayments').innerHTML = null;
+  document.getElementById('numberPaymentsLabel').innerHTML = null;
+}
+
 function calculateKeyTerms() {
   if (hasRequiredInputs()) {
     if (isEndDateBeforeStart()) {
@@ -148,9 +160,6 @@ function calculateKeyTerms() {
       nullInnerHTML();
     } else { // if all needed terms are entered and end date is NOT before start date, display core outputs
       populateInnerHTML();
-      if (isStartDateBeforeAdoption()) { // if lease start date is before adoption date show last two lines of output 
-        populatePostAdoptInnerHTML();
-      }
     }
   } else {  // if not all required inputs are entered, present error and null output fields
     document.getElementById('errorMessage').innerHTML = 'Please enter a valid start date and end date or term length';

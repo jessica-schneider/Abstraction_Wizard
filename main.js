@@ -1,6 +1,6 @@
 function getStartDateInputs() {
   let startDate = document.getElementById('startDate').value; 
-  let startDateObject = moment.utc(startDate);
+  let startDateObject = moment.utc(startDate,'YYYY-MM-DD');
   return { startDateObject, startDate };
 }
 
@@ -93,9 +93,9 @@ function isEndDateBeforeStart() {
 }
 
 function isEndDateBeforeAdopt() { 
-  let { endDate } = getEndDateInputs();
+  let { endDateObject } = getEndDateInputs();
   let { adoptDateObject } = getAdoptDateInputs();
-  return (moment(endDate).isSameOrBefore(adoptDateObject)) ? true : false;
+  return (moment(endDateObject).isSameOrBefore(adoptDateObject)) ? true : false;
 }
 
 function hasRequiredInputs() { // if start date and end date or term length are not filled out
@@ -116,7 +116,7 @@ function populateInnerHTML() {
   document.getElementById('lastPmtOutputLabel').innerHTML = 'Likely final payment date';
   document.getElementById('totalMonthsOutput').innerHTML = calculateMonthsTerm();
   document.getElementById('totalMonthsOutputLabel').innerHTML = 'Months with lease expense';
-  if (isstartDateBeforeAdoption()) { 
+  if (isStartDateBeforeAdoption()) { 
     populatePostAdoptInnerHTML(); // if lease start date is before adoption date populate last two lines of output 
   } else {
     nullPostAdoptInnerHTML(); // if lease start date is NOT before adoption date, clear last two lines of output 

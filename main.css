@@ -10,13 +10,13 @@ body {
 
 h1 {
   font-size: 24px;
-  color: rgb(0, 95, 178);
+  color:#005FB2;
 }
 
 h2 {
   font-size: 16px;
   font-weight: normal;
-  background-color: #f1f7fa;
+  background-color: #F1F7FA;
   color: #1A1B1E;
   width: 100%;
   line-height: 30px;
@@ -31,42 +31,42 @@ span {
 
 input {
   border-radius: 4px;
-  border-color: rgb(217, 215, 213);
+  border-color: #D9D7D5;
   border-style: solid;
   border-width: 0.666667px;
   padding-left: 5px;
 }
 
 input:focus-visible {
-  border-color: rgb(0, 95, 178);
+  border-color:#005FB2;
   box-shadow: none;
   border-width: 0.666667px;
   border-style: solid;
   box-sizing: border-box;
-  box-shadow: rgb(0, 95, 178) 0px 0px 3px 0px;
+  box-shadow:#005FB2 0px 0px 3px 0px;
   outline: none;
 }
 
 input:focus {
-  border-color: rgb(0, 95, 178);
+  border-color:#005FB2;
   box-shadow: none;
   border-width: 0.666667px;
   border-style: solid;
   box-sizing: border-box;
-  box-shadow: rgb(0, 95, 178) 0px 0px 3px 0px;
+  box-shadow:#005FB2 0px 0px 3px 0px;
 }
 
 label {
   padding-left: 15px;
-  color: rgb(123, 125, 128)
+  color: #7B7D80;
 }
 
 button {
   margin: 0px auto;
   cursor: pointer;
-  border-color: rgb(0, 95, 178);
+  border-color:#005FB2;
   color: white;
-  background-color: rgb(0, 95, 178);
+  background-color:#005FB2;
   border-radius: 5px;
   box-shadow: none;
   width: 100%;
@@ -82,7 +82,7 @@ button {
   max-width: 700px;
   padding: 16px;
   border: solid 0.5px;
-  border-color: rgb(217, 215, 213);
+  border-color: #D9D7D5;
 }
 
 .adoptionDate {
@@ -109,7 +109,7 @@ button {
 }
 
 #errorMessage {
-  color: rgb(194, 57, 52);
+  color:#C23934;
   margin: 10px auto;
 }
 
@@ -119,8 +119,9 @@ button {
 }
 
 .outputValue {
-  color: rgb(0, 95, 178);
+  color: #005FB2;
   min-width: 40%;
+  text-align: center;
 }
 
 .outputText {

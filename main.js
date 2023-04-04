@@ -116,7 +116,7 @@ function populateInnerHTML() {
   document.getElementById('lastPmtOutputLabel').innerHTML = 'Likely final payment date';
   document.getElementById('totalMonthsOutput').innerHTML = calculateMonthsTerm();
   document.getElementById('totalMonthsOutputLabel').innerHTML = 'Months with lease expense';
-  if (startDateBeforeAdoption()) { 
+  if (isstartDateBeforeAdoption()) { 
     populatePostAdoptInnerHTML(); // if lease start date is before adoption date populate last two lines of output 
   } else {
     nullPostAdoptInnerHTML(); // if lease start date is NOT before adoption date, clear last two lines of output 

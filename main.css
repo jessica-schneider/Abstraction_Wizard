@@ -11,6 +11,8 @@ body {
 h1 {
   font-size: 24px;
   color:#005FB2;
+  width: 100%;
+  text-align: center;
 }
 
 h2 {
@@ -73,12 +75,28 @@ button {
   font-size: 16px;
 }
 
+a {
+  display: contents;
+}
+
+img {
+  max-height: 125px;
+  max-width: 250px;
+  margin: 0px auto;
+}
+
+.welcome{
+  display: block;
+  margin: 0px auto;
+  min-width: 550px;
+  max-width: 732px;
+  padding-top: 16px;
+}
 .main {
   color: #1A1B1E;
   display: block;
   margin: 0px auto;
   min-width: 550px;
-  max-width: 80%;
   max-width: 700px;
   padding: 16px;
   border: solid 0.5px;

@@ -138,9 +138,9 @@ function nullInnerHTML() {
 
 function populatePostAdoptInnerHTML() {
   document.getElementById('monthsPostAdopt').innerHTML = calculateMonthsFromAdoption();
-  document.getElementById('monthsPostAdoptLabel').innerHTML = 'Post-adoption remaining term (months)';
+  document.getElementById('monthsPostAdoptLabel').innerHTML = 'Remaining term (months) as of adoption';
   document.getElementById('numberPayments').innerHTML = calculateNumberPayments();
-  document.getElementById('numberPaymentsLabel').innerHTML = 'Post-adoption payments made';
+  document.getElementById('numberPaymentsLabel').innerHTML = 'Payments to be made after adoption';
 }
 
 function nullPostAdoptInnerHTML() {
@@ -153,16 +153,16 @@ function nullPostAdoptInnerHTML() {
 function calculateKeyTerms() {
   if (hasRequiredInputs()) {
     if (isEndDateBeforeStart()) {
-      document.getElementById('errorMessage').innerHTML = 'Error: lease end date must be after start date';
+      document.getElementById('errorMessage').innerHTML = 'Error: lease end date must be after start date.';
       nullInnerHTML();
     } else if (isEndDateBeforeAdopt()) {
-      document.getElementById('errorMessage').innerHTML = 'Error: lease ends before adoption date and may not be in scope of ASC 842';
+      document.getElementById('errorMessage').innerHTML = 'Error: lease ends before adoption date and may not be in scope of ASC 842.';
       nullInnerHTML();
     } else { // if all needed terms are entered and end date is NOT before start date, display core outputs
       populateInnerHTML();
     }
   } else {  // if not all required inputs are entered, present error and null output fields
-    document.getElementById('errorMessage').innerHTML = 'Please enter a valid start date and end date or term length';
+    document.getElementById('errorMessage').innerHTML = 'Enter a valid start date and end date or term length.';
     nullInnerHTML();
   } 
 }
